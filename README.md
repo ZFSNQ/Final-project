@@ -326,6 +326,8 @@ print(clean_df['公司性质'].value_counts())
 - 薪资主要集中在10k-20k区间，该区间岗位数量最多
 - 平均薪资为14,850元，中位数为14,500元，两者接近，说明数据分布较为均匀
 - 30k以上的高薪岗位占比较少，属于稀缺岗位
+- <img width="1389" height="689" alt="4 1 薪资分布直方图" src="https://github.com/user-attachments/assets/9b28f21e-3ccd-4fd7-ab6a-55277c9c718d" />
+
 
 #### 4.1.2 薪资区间饼图与条形图
 
@@ -334,6 +336,8 @@ print(clean_df['公司性质'].value_counts())
 - 10k-15k区间次之，占比28.5%
 - 两者合计占比接近60%，说明这是Python开发工程师的主流薪资水平
 - 5k以下和30k以上区间占比最少，分别为3.4%和4.1%
+- <img width="1569" height="790" alt="4 2 薪资区间饼图+条形图" src="https://github.com/user-attachments/assets/6b48dd96-831a-4300-b437-e0e2995ccd41" />
+
 
 #### 4.1.3 不同学历薪资分布箱线图
 
@@ -342,6 +346,8 @@ print(clean_df['公司性质'].value_counts())
 - 硕士学历的中位数薪资最高，达到18k
 - 大专学历的薪资中位数约为13k，低于本科水平
 - 值得注意的是，部分大专学历岗位的薪资也能达到20k以上，说明学历不是唯一决定因素
+- <img width="1189" height="590" alt="4 3 学历与薪资关系箱线图" src="https://github.com/user-attachments/assets/e1872249-ca5c-401e-acb9-ffa96d025971" />
+
 
 #### 4.1.4 公司性质薪资对比条形图
 
@@ -350,6 +356,8 @@ print(clean_df['公司性质'].value_counts())
 - 上市公司和国企紧随其后，平均薪资在19k-20k之间
 - 民营公司平均薪资为14,200元，略低于整体平均水平
 - 创业公司平均薪资最低，约11,800元，但可能伴随着股权激励等其他形式的回报
+- <img width="1386" height="789" alt="4 4 公司性质薪资对比" src="https://github.com/user-attachments/assets/fc25fdda-df5d-4365-b9b4-781a2002a92f" />
+
 
 #### 4.1.5 工作经验与薪资关系折线图
 
@@ -358,6 +366,8 @@ print(clean_df['公司性质'].value_counts())
 - 3-5年经验期间，薪资增长速度有所放缓，但仍保持增长态势
 - 5年经验以后，薪资增长趋于稳定，进入职业平台期
 - 趋势线呈二次曲线形态，验证了边际收益递减规律
+- <img width="1389" height="790" alt="4 5 工作经验与薪资关系" src="https://github.com/user-attachments/assets/6c1feb30-3e98-411f-88b5-fee55e318206" />
+
 
 #### 4.1.6 行业分布与薪资双轴图
 
@@ -366,6 +376,8 @@ print(clean_df['公司性质'].value_counts())
 - 金融行业虽然岗位数量不多，但平均薪资最高
 - 互联网/电子商务行业岗位数量和薪资都处于较高水平
 - 不同行业的薪资水平存在明显差异，选择合适的行业对薪资有重要影响
+- <img width="1389" height="790" alt="4 6 行业分布（柱状图+折线图）" src="https://github.com/user-attachments/assets/09d75491-5ba6-4068-a712-0d926bee7967" />
+
 
 ### 4.2 特征重要性可视化
 
@@ -375,6 +387,8 @@ print(clean_df['公司性质'].value_counts())
 - 公司性质排名第三，重要性占比16.9%
 - 学历的重要性相对较低，仅占6.7%
 - 这一结果与传统认知有所不同，说明在Python开发领域，实际工作经验比学历背景更重要
+- <img width="912" height="550" alt="四、特征重要性分析" src="https://github.com/user-attachments/assets/425f4f59-2667-4d28-9718-1389aa2e3a5b" />
+
 
 ---
 
