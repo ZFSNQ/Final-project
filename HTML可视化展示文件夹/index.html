@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python岗位数据可视化分析</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Python岗位数据可视化分析</h1>
+                <p class="subtitle">前程无忧招聘数据分析与挖掘 | 职业发展预测</p>
+            </div>
+            <div class="header-right">
+                <div class="time-display" id="currentTime"></div>
+            </div>
+        </header>
+
+        <!-- 统计卡片 -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalJobs">0</div>
+                    <div class="stat-label">总岗位数</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="avgSalary">0</div>
+                    <div class="stat-label">平均薪资(元/月)</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏢</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="companyCount">0</div>
+                    <div class="stat-label">涉及公司数</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="avgExperience">0</div>
+                    <div class="stat-label">平均工作经验(年)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据概览模块 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>📊 数据概览</h2>
+                <p class="section-desc">基于前程无忧招聘数据，全面分析Python开发工程师岗位市场现状</p>
+            </div>
+            
+            <div class="charts-grid">
+                <!-- 薪资分布 -->
+                <div class="chart-card large">
+                    <div class="chart-header">
+                        <h3>薪资分布情况</h3>
+                        <p class="chart-desc">薪资集中在12k-15k区间，整体呈正态分布，高端岗位稀缺</p>
+                    </div>
+                    <div class="chart-container" id="salaryChart"></div>
+                </div>
+
+                <!-- 学历分布 -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>学历要求分布</h3>
+                        <p class="chart-desc">本科学历占比最高(69.5%)，大专次之，硕士岗位极少</p>
+                    </div>
+                    <div class="chart-container" id="educationChart"></div>
+                </div>
+
+                <!-- 工作经验分布 -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>工作经验分布</h3>
+                        <p class="chart-desc">3-4年经验需求最旺盛，初级岗位占比约28%</p>
+                    </div>
+                    <div class="chart-container" id="experienceChart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 公司分析模块 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>🏢 公司分析</h2>
+                <p class="section-desc">深入了解招聘企业的性质、规模和所属行业分布</p>
+            </div>
+            
+            <div class="charts-grid">
+                <!-- 公司性质分布 -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>公司性质分布</h3>
+                        <p class="chart-desc">民营企业占主导(69.5%)，上市公司和外资企业各占约9%</p>
+                    </div>
+                    <div class="chart-container" id="companyTypeChart"></div>
+                </div>
+
+                <!-- 公司规模分布 -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>公司规模分布</h3>
+                        <p class="chart-desc">中小型企业(50-500人)占比最高，大型企业需求稳定</p>
+                    </div>
+                    <div class="chart-container" id="companySizeChart"></div>
+                </div>
+
+                <!-- 行业分布 -->
+                <div class="chart-card large">
+                    <div class="chart-header">
+                        <h3>行业分布</h3>
+                        <p class="chart-desc">计算机软件和互联网行业需求最旺盛，金融行业薪资较高</p>
+                    </div>
+                    <div class="chart-container" id="industryChart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 薪资影响因素模块 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>📈 薪资影响因素</h2>
+                <p class="section-desc">分析学历、工作经验等因素对薪资的影响关系</p>
+            </div>
+            
+            <div class="charts-grid">
+                <!-- 学历薪资关系 -->
+                <div class="chart-card large">
+                    <div class="chart-header">
+                        <h3>学历与薪资关系</h3>
+                        <p class="chart-desc">学历越高薪资越高，硕士学历薪资显著高于其他学历层次</p>
+                    </div>
+                    <div class="chart-container" id="eduSalaryChart"></div>
+                </div>
+
+                <!-- 工作经验薪资趋势 -->
+                <div class="chart-card large">
+                    <div class="chart-header">
+                        <h3>工作经验与薪资趋势</h3>
+                        <p class="chart-desc">薪资随经验增长呈上升趋势，5-7年经验薪资涨幅最大</p>
+                    </div>
+                    <div class="chart-container" id="expSalaryChart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 未来职业预测模块 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>🔮 未来职业预测</h2>
+                <p class="section-desc">基于机器学习模型预测不同条件下的薪资发展趋势</p>
+            </div>
+            
+            <div class="charts-grid">
+                <!-- 模型性能对比 -->
+                <div class="chart-card large">
+                    <div class="chart-header">
+                        <h3>模型性能对比</h3>
+                        <p class="chart-desc">线性回归表现最优(R²=0.29)，随机森林次之，决策树表现较差</p>
+                    </div>
+                    <div class="chart-container" id="modelPerformanceChart"></div>
+                </div>
+
+                <!-- 特征重要性 -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>特征重要性分析</h3>
+                        <p class="chart-desc">工作经验影响最大(53%)，其次是公司规模和性质</p>
+                    </div>
+                    <div class="chart-container" id="featureImportanceChart"></div>
+                </div>
+
+                <!-- 薪资预测趋势 -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>薪资预测趋势</h3>
+                        <p class="chart-desc">预测不同学历和经验组合下的薪资增长路径</p>
+                    </div>
+                    <div class="chart-container" id="salaryPredictionChart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 职业发展建议模块 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>💡 职业发展建议</h2>
+                <p class="section-desc">基于数据分析结果给出的职业发展参考建议</p>
+            </div>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <h4>技能提升方向</h4>
+                    <ul>
+                        <li>深入学习Python核心技术栈</li>
+                        <li>掌握数据分析和机器学习技能</li>
+                        <li>积累项目实战经验</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">📚</div>
+                    <h4>学历提升建议</h4>
+                    <ul>
+                        <li>本科及以上学历竞争力更强</li>
+                        <li>硕士学历薪资溢价明显</li>
+                        <li>持续学习比学历更重要</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🏆</div>
+                    <h4>职业路径规划</h4>
+                    <ul>
+                        <li>0-2年：积累基础技能</li>
+                        <li>3-5年：成为技术骨干</li>
+                        <li>5年+：技术管理或专家路线</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">💼</div>
+                    <h4>企业选择建议</h4>
+                    <ul>
+                        <li>大型企业稳定性高</li>
+                        <li>创业公司成长空间大</li>
+                        <li>关注行业发展趋势</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>数据来源：前程无忧招聘网 | Python开发工程师岗位数据分析与职业预测</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
