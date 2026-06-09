@@ -1,4 +1,3 @@
-[期末大项目实验报告.md](https://github.com/user-attachments/files/28734387/default.md)
 # 数据挖掘期末大项目实验报告
 
 ## 一、前期规划
