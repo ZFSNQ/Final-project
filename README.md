@@ -1,6 +1,6 @@
 # 数据挖掘期末大项目实验报告
 
-##项目前端展示
+## 项目前端展示
 <img width="820" height="448" alt="image" src="https://github.com/user-attachments/assets/3e7cf4c6-8e93-432d-860c-5426e71d0315" />
 
 ## 一、前期规划
